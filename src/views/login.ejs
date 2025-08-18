@@ -1,0 +1,76 @@
+  <%- include('includes/head') %>
+  <%- include('includes/nav') %>
+   <div class="container">
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8 my-3">
+        <h1 class="text-center">Logar-se ou Criar Conta</h1>
+        <p class="text-center lead" >Faça login ou crie sua conta</p>
+        
+        <%- include('includes/messages'); %>
+
+        <div class="row">
+          <div class="col-lg">
+            <h4>Cadastre-se</h4>
+            <div id="emailHelp" class="form-text">Caso não possua conta, cadastre-se.</div>
+            <br>
+            <form class="form-cadastro" action="/login/register" method="POST">
+             <input type="hidden" name="_csrf" value= <%= csrfToken%> >
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Seu E-mail</label>
+              <input type="email" class="form-control" name="email">
+              <div class="email-alert"></div>
+              <label class="form-label">Senha</label>
+              <input type="password" class="form-control" name="password" aria-describedby="emailHelp">
+              <div class="pass-alert"></div>
+            </div>
+            <!-- <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div> -->
+            <button type="submit" class="btn btn-primary">Criar conta</button>
+          </form>
+
+          </div>
+
+          <div class="col-lg">
+            <h4>Faça login</h4>
+            <div id="emailHelp" class="form-text">Se já é cadastrado, faça login aqui.</div>
+            <br>
+            <form class="form-login" action="/login/login" method="POST">
+              <input type="hidden" name="_csrf" value= <%= csrfToken%> >
+              <div class="mb-3">
+                <label class="form-label">Seu E-mail Cadastrado</label>
+                <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+                <div class="email-alert"></div>
+                <label class="form-label">Senha</label>
+                <input type="password" class="form-control" name="password" aria-describedby="emailHelp">
+                <div class="pass-alert"></div>
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+              </div>
+              <!-- <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div> -->
+              <button type="submit" class="btn btn-primary">Logar-se</button>
+            </form>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+   </div>
+  <%- include('includes/footer') %>

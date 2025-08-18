@@ -1,0 +1,14 @@
+      = para exibir caracteres, este NÃO permite o uso de html e só é exibido uma string %>
+      - para executar, este PERMITE o uso de html %>
+      <% sem sinal para controlar fluxo(for, if...)%>
+      <%# comentários %>
+      <%- include('caminho') %>
+
+    criar sempre desta forma: Ex:
+    <%  if(){%>
+    <%= exibir algo %>
+    <% }else{%>
+        <% = exibir algo $>
+    <% }%>
+
+    utilizar um variável de um middleware se não for uma rota '/', ele não ficará disponível

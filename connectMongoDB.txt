@@ -1,0 +1,1 @@
+mongodb+srv://login:db_password@cursojs01.uczjije.mongodb.net/
