@@ -26,13 +26,7 @@ const path = require('path');
 const helmet = require('helmet');
 const csrf = require('csurf');
 
-const helmet = require("helmet");
-app.use(
-  helmet({
-    hsts: false,
-  })
-);
-
+app.use(helmet())
 app.use(express.urlencoded({extended:true}));//se não houver esta tratativa, o req.body será undefined
 app.use(express.static(path.resolve(__dirname,'public')));
 const sessionOpt = session({
