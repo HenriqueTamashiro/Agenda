@@ -14,9 +14,9 @@ mongoose.connect(process.env.DB_URL)
     console.log(e)
 });
 
-const session = require('express-session');
-const mongo = require('connect-mongo');
-const flash = require('connect-flash');
+const session = require('express-session');//Reconhecimento de sessões
+const mongo = require('connect-mongo');//Banco de Dados
+const flash = require('connect-flash');// mensagens rápidas que não ficam salvas
 
 
 const routes = require('./routes')
@@ -27,9 +27,9 @@ const helmet = require('helmet');
 const csrf = require('csurf');
 
 app.use(helmet())
-app.use(express.urlencoded({extended:true}));//se não houver esta tratativa, o req.body será undefined
+app.use(express.urlencoded({extended:true}));//se não houver esta tratativa, o req.body(url) será undefined
 app.use(express.static(path.resolve(__dirname,'public')));
-const sessionOpt = session({
+const sessionOpt = session({// Criação do cookie de sessão no DB e sua configuração
     secret: '23qer1t0acx3a65280394é1epmA643ndaí523',
     store: mongo.create({mongoUrl:process.env.DB_URL}),
     resave:false,
